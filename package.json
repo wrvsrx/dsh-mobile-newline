@@ -1,0 +1,22 @@
+{
+  "name": "dsh-mobile-newline-local",
+  "version": "0.1.0",
+  "description": "Use Enter for a newline in the DSH Web composer on mobile, including IME-generated Enter commands.",
+  "type": "module",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": ["lib", "cordis.patch.yml", "README.md"],
+  "engines": { "dsh": "0.2.2-rc.1" },
+  "scripts": { "test": "node --test" },
+  "dsh": {
+    "bundle": { "patch": "./cordis.patch.yml" },
+    "client": {
+      "platform": "web",
+      "inject": ["@deepseek-ai/dsh-client-ui-conversation"]
+    }
+  }
+}
